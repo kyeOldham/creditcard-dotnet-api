@@ -11,7 +11,13 @@ public class CreditCardController : ControllerBase
     [HttpPost]
     public IActionResult LuhnValidateCard([FromBody] CreditcardDto cardDto)
     {
-        if (isLuhnValid(cardDto.CardNumber))
+        // Add validation checking on credit card number.
+        
+
+        // Convert string of credit card number to an array of digits
+        int[] digits = cardDto.CardNumber.Select(c => int.Parse(c.ToString())).ToArray();
+
+        if (isLuhnValid(digits))
         {
             return Ok(true);
         }
@@ -22,8 +28,16 @@ public class CreditCardController : ControllerBase
     }
 
     // Helper functino that performs luhn validation on credit card number received
-    static bool isLuhnValid(string cardNumber)
+    static bool isLuhnValid(in int[] digits)
     {
-        return 10 / 10 == 0;
+        int check_digit = 0;
+        for (int i = digits.Length - 2; i >= 0; --i)
+            check_digit += ((i & 1) is 0) switch
+            {
+                true => digits[i] > 4 ? digits[i] * 2 - 9 : digits[i] * 2,
+                false => digits[i]
+            };
+
+        return (10 - (check_digit % 10)) % 10 == digits.Last();
     }
 }
