@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dotnet-api\\Dotnet-api.csproj": {}
+    "D:\\3rd Pro\\creditcard-dotnet-api\\Dotnet-api.csproj": {}
   },
   "projects": {
-    "D:\\Dotnet-api\\Dotnet-api.csproj": {
+    "D:\\3rd Pro\\creditcard-dotnet-api\\Dotnet-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dotnet-api\\Dotnet-api.csproj",
+        "projectUniqueName": "D:\\3rd Pro\\creditcard-dotnet-api\\Dotnet-api.csproj",
         "projectName": "Dotnet-api",
-        "projectPath": "D:\\Dotnet-api\\Dotnet-api.csproj",
+        "projectPath": "D:\\3rd Pro\\creditcard-dotnet-api\\Dotnet-api.csproj",
         "packagesPath": "C:\\Users\\hamky\\.nuget\\packages\\",
-        "outputPath": "D:\\Dotnet-api\\obj\\",
+        "outputPath": "D:\\3rd Pro\\creditcard-dotnet-api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -46,6 +46,16 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
             }
           },
           "imports": [

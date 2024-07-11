@@ -1,5 +1,0 @@
-D:\Dotnet-api\Dotnet-api.Tests\obj\Debug\net6.0\Dotnet-api.Tests.csproj.AssemblyReference.cache
-D:\Dotnet-api\Dotnet-api.Tests\obj\Debug\net6.0\Dotnet-api.Tests.GeneratedMSBuildEditorConfig.editorconfig
-D:\Dotnet-api\Dotnet-api.Tests\obj\Debug\net6.0\Dotnet-api.Tests.AssemblyInfoInputs.cache
-D:\Dotnet-api\Dotnet-api.Tests\obj\Debug\net6.0\Dotnet-api.Tests.AssemblyInfo.cs
-D:\Dotnet-api\Dotnet-api.Tests\obj\Debug\net6.0\Dotnet-api.Tests.csproj.CoreCompileInputs.cache

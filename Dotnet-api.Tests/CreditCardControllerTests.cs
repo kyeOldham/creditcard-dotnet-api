@@ -13,63 +13,67 @@ namespace Dotnet_api.Tests
             _controller = new CreditCardController();
         }
 
+        // Check that API returns 200 and succesfully performs luhn validation.
         [Theory]
         [InlineData("4539578763621486", true)] // Valid
         [InlineData("8539577313621426", false)] // Invalid
         public void LuhnValidateCard_ReturnsExpectedResult(string cardNumber, bool expectedResult)
         {
-            // Arrange
+            // Init Dto class
             var cardDto = new CreditcardDto { CardNumber = cardNumber };
 
-            // Act
+            // Run test number through validation method
             var result = _controller.LuhnValidateCard(cardDto) as OkObjectResult;
 
-            //Assert
+            // Compare test figure to expected output
             Assert.NotNull(result);
             Assert.Equal(200, result.StatusCode);
             Assert.Equal(expectedResult, result.Value);
         }
 
+        // Check that API returns 400 if Card Number contains characters
         [Fact]
         public void LuhnValidateCard_ReturnsBadRequestForInvalidCardNumber()
         {
-            // Arrange
+            // Init Dto class
             var cardDto = new CreditcardDto { CardNumber = "123asad1234" };
 
-            // Act
+            // Run test number through validation method
             var result = _controller.LuhnValidateCard(cardDto) as BadRequestObjectResult;
 
-            //Assert
+            // Compare test figure to expected output
             Assert.NotNull(result);
             Assert.Equal(400, result.StatusCode);
             Assert.Equal("Card number is invalid", result.Value);
         }
 
+        // Check that API returns 400 if Card Number is an empty string
         [Fact]
         public void LuhnValidateCard_ReturnsBadRequestForEmptyCardNumber()
         {
-            // Arrange
+            // Init Dto class
             var cardDto = new CreditcardDto { CardNumber = "" };
 
-            // Act
+            // Run test number through validation method
             var result = _controller.LuhnValidateCard(cardDto) as BadRequestObjectResult;
 
-            //Assert
+            // Compare test figure to expected output
             Assert.NotNull(result);
             Assert.Equal(400, result.StatusCode);
             Assert.Equal("Card number is invalid", result.Value);
         }
 
+        // Check that API returns 400 if Card Number is Null
         [Fact]
         public void LuhnValidateCard_ReturnsBadRequestForNullCardNumber()
         {
-            // Arrange
+            // Init Dto class
             var cardDto = new CreditcardDto { CardNumber = null };
 
-            // Act
+           // Run test number through validation method
             var result = _controller.LuhnValidateCard(cardDto) as BadRequestObjectResult;
 
-            //Assert
+            // Compare test figure to expected output
             Assert.NotNull(result);
             Assert.Equal(400, result.StatusCode);
             Assert.Equal("Card number is invalid", result.Value);
